@@ -13,7 +13,7 @@ def match_number_from_file(query):
     # 获取脚本所在目录的绝对路径
     script_dir = os.path.dirname(os.path.abspath(__file__))
     # 构建完整文件路径
-    file_path = os.path.join(script_dir, 'shares_size.txt')
+    file_path = os.path.join(script_dir, 'shares_size1.txt')
     try:
         # 读取文件内容
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -25,15 +25,15 @@ def match_number_from_file(query):
             if query in line:
                 parts = line.split(':', 1)
                 if len(parts) >= 2:
-                    return parts[1].strip()
-        return None
+                    return float(parts[1].strip())
+        return -1
 
     except FileNotFoundError:
-        print(f"错误：文件 '{file_path}' 未找到", file=sys.stderr)
-        return None
+        # print(f"错误：文件 '{file_path}' 未找到", file=sys.stderr)
+        return -1
     except Exception as e:
-        print(f"读取文件时出错: {e}", file=sys.stderr)
-        return None
+        # print(f"读取文件时出错: {e}", file=sys.stderr)
+        return -1
 
 
 if __name__ == "__main__":
