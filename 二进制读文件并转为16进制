@@ -1,0 +1,10 @@
+import binascii
+
+with open(r'D:\temp\9acc3ece-c7ad-4ebc-9a77-cdfd18c42874~实名认证信息变更申请函（机构）（三方签署版本）.pdf','rb') as f:
+# with open(r'D:\temp\业务运维发布接收计划.xlsx','rb') as f:
+# with open(r'D:\temp\未命名.3dm','rb') as f:
+    content = f.read(64)
+    # print(content)
+
+content_hex = binascii.hexlify(content)
+print(content_hex)
